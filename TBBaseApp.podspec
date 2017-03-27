@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/james1896/TBBaseApp.git", :tag => s.version, :submodules => true }
+  s.source       = { :svn => "10.66.72.114/codes/mobile/app/B05/branches/A03_iPhone/A03_iPhone/Category", :tag => s.version, :submodules => true }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
