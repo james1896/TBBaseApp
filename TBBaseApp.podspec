@@ -17,17 +17,16 @@ Pod::Spec.new do |s|
 
   s.name         = "TBBaseApp"
   s.version      = "0.0.1"
-  s.summary      = "A short description of TBBaseApp."
+  s.summary      = "1"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-                   DESC
+  s.description  = '3232332'
 
-  s.homepage     = "http://EXAMPLE/TBBaseApp"
+  s.homepage     = "https://github.com/james1896/TBBaseApp"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -79,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/james1896/TBBaseApp.git.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/james1896/TBBaseApp.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
