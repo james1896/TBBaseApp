@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  请求数据成功加调
+ *  请求数据成功加调 0.0.5
  */
 typedef void(^success)(NSURLSessionDataTask *task, id responseObject);
 
