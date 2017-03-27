@@ -94,12 +94,19 @@ Pod::Spec.new do |s|
   
    s.subspec 'RSA' do |ss|
     ss.source_files = 'Base/RSA/*.{h,m}'
-    ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
-    ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
-    ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
-    ss.osx.frameworks = 'CoreServices'
+#     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
+#     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
+#     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
+#     ss.osx.frameworks = 'CoreServices'
   end
 
+  s.subspec 'TBNetworkManager' do |ss|
+    ss.source_files = 'Base/*.{h,m}'
+#     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
+#     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
+#     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
+#     ss.osx.frameworks = 'CoreServices'
+  end
   # s.public_header_files = "Classes/**/*.h"
 
 
