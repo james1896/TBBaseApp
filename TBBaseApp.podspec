@@ -101,7 +101,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'TBStartMovieController' do |ss|
-    ss.source_files = 'Base/StartMovieController/*.{h,m}'
+    ss.source_files = 'Base/StartMovieController/*.{h,m,gif,mp4}'
 #     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
 #     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
 #     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
