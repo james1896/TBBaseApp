@@ -11,7 +11,7 @@
 #import "NIKKARSA.h"
 
 
-static NSString *BASE_URL = @"http://10.66.67.81:8001";
+static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
 
 @implementation BugattiNetworkManager
 
@@ -19,7 +19,7 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001";
     
     //拼 url
     NSString *url = [NSString stringWithFormat:@"%@/test",BASE_URL];
-
+    
     //
     [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
 }
@@ -29,12 +29,12 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001";
     
     //
     [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
-
+    
     
 }
 /**
  封装数据
-
+ 
  @param paras <#paras description#>
  @return <#return value description#>
  */
@@ -45,11 +45,12 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001";
     
     //rsa加密
     NSString *encodeStr = [[NIKKARSA share] encryptString:jsonStr];
+    
     return @{@"value":encodeStr};
 }
 /**
  更新积分接口
-
+ 
  @param parameters <#parameters description#>
  @param success <#success description#>
  @param failure <#failure description#>
@@ -58,7 +59,7 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001";
     NSString *url = [NSString stringWithFormat:@"%@/points",BASE_URL];
     NSDictionary *paras = [self handleParameters:parameters isRSA:NO];
     [self handlePOSTWithURL:url Parameters:paras success:success failure:failure];
-//    [self handleGETWithURL:url Parameters:parameters success:success failure:failure];
+    //    [self handleGETWithURL:url Parameters:parameters success:success failure:failure];
 }
 /**
  登录
@@ -85,7 +86,7 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001";
 + (void)registerWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure{
     
     NSString *url = [NSString stringWithFormat:@"%@/register",BASE_URL];
-   [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
 }
 
 /**
@@ -171,7 +172,7 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001";
     
     NSMutableDictionary *paras = [[NSMutableDictionary alloc]initWithCapacity:0];
     if(isRSA){
-      paras =  [NSMutableDictionary dictionaryWithDictionary:[self RsaParameters:parameters]];
+        paras =  [NSMutableDictionary dictionaryWithDictionary:[self RsaParameters:parameters]];
     }else{
         [parameters enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             [paras setObject:obj forKey:key];
@@ -205,8 +206,8 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001";
         NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数:%@",url,parameters,responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error:%@",error);
         failure(task,error);
+        NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数:%@",url,parameters,error);
     }];
     
 }
