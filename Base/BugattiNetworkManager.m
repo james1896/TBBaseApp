@@ -27,7 +27,7 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
 + (void)test1WithParameters:(NSDictionary *)parameters succeess:(success)success failure:(failure)failure{
     
     //拼 url
-    NSString *url = [NSString stringWithFormat:@"%@/test",BASE_URL];
+    NSString *url = [NSString stringWithFormat:@"%@/test1",BASE_URL];
     
     //
     [self handlePOSTWithURL:url Parameters:parameters success:success failure:failure];
