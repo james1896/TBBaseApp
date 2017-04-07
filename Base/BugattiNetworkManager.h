@@ -44,7 +44,11 @@ typedef void(^start)(NSString *username,NSString *password);;
 
 + (instancetype)shareManager;
 
+//加密的测试
 + (void)testWithParameters:(NSDictionary *)parameters succeess:(success)success failure:(failure)failure;
+
+//不需要加密的参数
++ (void)test1WithParameters:(NSDictionary *)parameters succeess:(success)success failure:(failure)failure;
 
 //得到订单纪录
 + (void)getRecordWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;

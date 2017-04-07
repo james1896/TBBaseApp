@@ -21,24 +21,34 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
     NSString *url = [NSString stringWithFormat:@"%@/test",BASE_URL];
     
     //
+    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithRSADictionary:parameters] success:success failure:failure];
+}
+
++ (void)test1WithParameters:(NSDictionary *)parameters succeess:(success)success failure:(failure)failure{
+    
+    //拼 url
+    NSString *url = [NSString stringWithFormat:@"%@/test",BASE_URL];
+    
+    //
     [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
 }
+
 
 + (void)getRecordWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure{
     NSString *url = [NSString stringWithFormat:@"%@/record",BASE_URL];
     
     //
-    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithRSADictionary:parameters] success:success failure:failure];
     
     
 }
 /**
- 封装数据
+ RSA加密数据
  
  @param paras <#paras description#>
  @return <#return value description#>
  */
-+ (NSDictionary *)requestDictionaryWithDictionary:(NSDictionary *)paras{
++ (NSDictionary *)requestDictionaryWithRSADictionary:(NSDictionary *)paras{
     
     // 字典转 json
     NSString *jsonStr = [self convertToJsonData:paras];
@@ -48,6 +58,19 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
     
     return @{@"value":encodeStr};
 }
+
+//不加密
++ (NSDictionary *)requestDictionaryWithDictionary:(NSDictionary *)paras{
+    
+    // 字典转 json
+    NSString *jsonStr = [self convertToJsonData:paras];
+    
+    //rsa加密
+//    NSString *encodeStr = [[NIKKARSA share] encryptString:jsonStr];
+    
+    return @{@"value":jsonStr};
+}
+
 /**
  更新积分接口
  
@@ -72,7 +95,7 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
     
     NSString *url = [NSString stringWithFormat:@"%@/login",BASE_URL];
     
-    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithRSADictionary:parameters] success:success failure:failure];
 }
 
 
@@ -86,7 +109,7 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
 + (void)registerWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure{
     
     NSString *url = [NSString stringWithFormat:@"%@/register",BASE_URL];
-    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithDictionary:parameters] success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:[self requestDictionaryWithRSADictionary:parameters] success:success failure:failure];
 }
 
 /**
