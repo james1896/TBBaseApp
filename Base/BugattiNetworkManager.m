@@ -64,19 +64,10 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
-        
-        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"上传成功");
-        
         success(task,responseObject);
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        NSLog(@"上传失败%@",error);
-        
         failure(task,error);
-        
     }];
     
     
