@@ -6,7 +6,7 @@
 //  Copyright © 2017 toby. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /**
  *  请求数据成功加调
@@ -40,10 +40,13 @@ typedef void(^start)(NSString *username,NSString *password);;
 
 @interface BugattiNetworkManager : NSObject
 
-@property (nonatomic,strong) BTLogin *login;
 
 + (instancetype)shareManager;
 
+//上传图片
++(void)uploadImage:(UIImage *)image succeess:(success)success failure:(failure)failure;
+
+//
 //加密的测试
 + (void)testWithParameters:(NSDictionary *)parameters succeess:(success)success failure:(failure)failure;
 
