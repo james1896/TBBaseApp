@@ -10,4 +10,7 @@
 
 @interface APPUtils : NSObject
 
+//获得设备型号
++ (NSString *)deviceModel;
+
 @end
