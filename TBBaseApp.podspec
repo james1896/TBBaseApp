@@ -109,16 +109,11 @@ Pod::Spec.new do |s|
 #     ss.osx.frameworks = 'CoreServices'
   end
   
-  s.subspec 'TBKeyChain' do |ss|
-    ss.source_files = 'Base/TBKeyChain/*.{h,m}'
-#     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
-#     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
-#     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
-#     ss.osx.frameworks = 'CoreServices'
-  end
+  
   
   s.subspec 'TBPredicate' do |ss|
     ss.source_files = 'Base/TBPredicate/*.{h,m}'
+    s.dependency "TBKeyChain"
 #     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
 #     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
 #     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
