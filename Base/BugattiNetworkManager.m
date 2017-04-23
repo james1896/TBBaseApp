@@ -301,11 +301,11 @@ static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
     [sessionManager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(task,responseObject);
         
-        NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数:%@",url,parameters,responseObject);
+        NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求成功):%@",url,parameters,responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(task,error);
-        NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数:%@",url,parameters,error);
+        NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求失败):%@",url,parameters,error);
     }];
     
 }
