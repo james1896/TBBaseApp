@@ -20,7 +20,7 @@ static NSString *TB_PASSWORD_REGULAR = @"^[A-Za-z0-9]{8,16}+$";
 //用户名必须是5-11数字或字母的组合
 static NSString *TB_USERNAME_REGULAR = @"^[A-Za-z0-9]{5,11}+$";
 
-
+//包括了新疆名字 判断
 static NSString *TB_REALNAME_REGULAR = @"^([\\u4e00-\\u9fa5]|\\u3007)+([\\.\\uff0e\\u00b7\\u30fb]?|\\u3007?)+([\\u4e00-\\u9fa5]|\\u3007)+$";
 
 @interface TBPredicate : NSObject
