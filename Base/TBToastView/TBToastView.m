@@ -21,7 +21,8 @@
     CGFloat SCREEN_WIDTH = [[UIScreen mainScreen]bounds].size.width;
     
     UIView *toastView = [[UIView alloc]initWithFrame:CGRectMake(0, -80, SCREEN_WIDTH, TBTOASTVIEW_HEIGHT)];
-    toastView.backgroundColor = [UIColor colorWithRed:234 green:161 blue:59 alpha:1];
+    
+    toastView.backgroundColor = [UIColor colorWithRed:234/255.0 green:161/255.0 blue:59/255.0 alpha:1];
 //    toastView.backgroundColor = COLOR(0, 0, 0, 1);
     UILabel *toastLab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, toastView.frame.size.width-40, toastView.frame.size.height)];
     toastLab.textColor = [UIColor whiteColor];

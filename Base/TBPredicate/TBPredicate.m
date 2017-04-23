@@ -19,7 +19,7 @@ static NSString *TBTBDESC = @"desc";
 + (NSDictionary *)checkPhone:(NSString *)phoneNumber{
     
     NSMutableDictionary *mdict = [self dictFactory];
-    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TBPHONEREGULAR];
+    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TB_PHONE_REGULAR];
     
     if ([phonePredicate evaluateWithObject:phoneNumber]) {
         
@@ -33,7 +33,7 @@ static NSString *TBTBDESC = @"desc";
 
 + (NSDictionary *)checkUserName:(NSString *)userName{
     NSMutableDictionary *mdict = [self dictFactory];
-    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TBUSERNAMEREGULAR];
+    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TB_USERNAME_REGULAR];
     
     if ([phonePredicate evaluateWithObject:userName]) {
         
@@ -47,13 +47,29 @@ static NSString *TBTBDESC = @"desc";
 
 + (NSDictionary *)checkPassword:(NSString *)pwd{
     NSMutableDictionary *mdict = [self dictFactory];
-    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TBPASSWORDREGULAR];
+    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TB_PASSWORD_REGULAR];
     
     if ([phonePredicate evaluateWithObject:pwd]) {
         
         [mdict setObject:[NSNumber numberWithBool:YES] forKey:TBSTATUS];
     }else{
         [mdict setObject:@"密码必须是8-16数字或字母的组合" forKey:TBTBDESC];
+    }
+    
+    return mdict;
+}
+
+
+
++ (NSDictionary *)checkRealname:(NSString *)pwd{
+    NSMutableDictionary *mdict = [self dictFactory];
+    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TB_REALNAME_REGULAR];
+    
+    if ([phonePredicate evaluateWithObject:pwd]) {
+        
+        [mdict setObject:[NSNumber numberWithBool:YES] forKey:TBSTATUS];
+    }else{
+        [mdict setObject:@"请输入正确的真实中文姓名" forKey:TBTBDESC];
     }
     
     return mdict;
