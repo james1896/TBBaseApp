@@ -66,11 +66,11 @@ static NSString *TBTBDESC = @"desc";
 }
 
 - (TBPredicate *(^)(NSString *phoneNumber))checkPassword{
-    return ^(NSString *phoneNumber){
+    return ^(NSString *password){
         _result = [self dictFactory];
         NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TB_PASSWORD_REGULAR];
         
-        if ([phonePredicate evaluateWithObject:phoneNumber]) {
+        if ([phonePredicate evaluateWithObject:password]) {
             
             [_result setObject:[NSNumber numberWithBool:YES] forKey:TBSTATUS];
         }else{
@@ -82,11 +82,11 @@ static NSString *TBTBDESC = @"desc";
 
 
 - (TBPredicate *(^)(NSString *phoneNumber))checkRealname{
-    return ^(NSString *phoneNumber){
+    return ^(NSString *realName){
         _result = [self dictFactory];
         NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TB_PASSWORD_REGULAR];
         
-        if ([phonePredicate evaluateWithObject:phoneNumber]) {
+        if ([phonePredicate evaluateWithObject:realName]) {
             
             [_result setObject:[NSNumber numberWithBool:YES] forKey:TBSTATUS];
         }else{
@@ -98,11 +98,11 @@ static NSString *TBTBDESC = @"desc";
 
 
 - (TBPredicate *(^)(NSString *phoneNumber))checkUserName{
-    return ^(NSString *phoneNumber){
+    return ^(NSString *userName){
         _result = [self dictFactory];
         NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",TB_USERNAME_REGULAR];
         
-        if ([phonePredicate evaluateWithObject:phoneNumber]) {
+        if ([phonePredicate evaluateWithObject:userName]) {
             
             [_result setObject:[NSNumber numberWithBool:YES] forKey:TBSTATUS];
         }else{
