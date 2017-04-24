@@ -25,18 +25,17 @@ static NSString *TB_REALNAME_REGULAR = @"^([\\u4e00-\\u9fa5]|\\u3007)+([\\.\\uff
 
 @interface TBPredicate : NSObject
 
-+ (NSDictionary *)checkPhone:   (NSString *)phoneNumber;
+@property (nonatomic,copy) TBPredicate * (^checkPhone)(NSString *phoneNumber);
+@property (nonatomic,copy) TBPredicate * (^checkUserName)(NSString *userName);
+@property (nonatomic,copy) TBPredicate * (^checkPassword)(NSString *pwd);
+@property (nonatomic,copy) TBPredicate * (^checkRealname)(NSString *checkRealname);
 
-+ (NSDictionary *)checkUserName:(NSString *)userName;
+@property (nonatomic,copy) NSString* (^stringWithResult)();
 
-+ (NSDictionary *)checkPassword:(NSString *)pwd;
-
-+ (NSDictionary *)checkRealname:(NSString *)name;
+@property (nonatomic,copy) BOOL (^boolWithResult)();
 
 
-//
-+ (BOOL)boolWithDictionary:(NSDictionary *)dict;
-+ (NSString *)descWithDictionary:(NSDictionary *)dict;
++ (instancetype)share;
 
 @end
 
