@@ -118,6 +118,12 @@ Pod::Spec.new do |s|
 #     ss.osx.frameworks = 'CoreServices'
   end
   
+  s.subspec 'TBView' do |ss|
+    ss.source_files = 'Base/TBView/*.{h,m}'
+  end
+  
+  
+  
   s.subspec 'TBPredicate' do |ss|
     ss.source_files = 'Base/TBPredicate/*.{h,m}'
   end
@@ -139,6 +145,9 @@ Pod::Spec.new do |s|
 #     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
 #     ss.osx.frameworks = 'CoreServices'
   end
+  
+  
+  
   
   
   
