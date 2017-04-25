@@ -118,6 +118,12 @@ Pod::Spec.new do |s|
 #     ss.osx.frameworks = 'CoreServices'
   end
   
+  s.subspec 'TBView' do |ss|
+    ss.source_files = 'Base/TBView/*.{h,m}'
+  end
+  
+  
+  
   s.subspec 'TBPredicate' do |ss|
     ss.source_files = 'Base/TBPredicate/*.{h,m}'
   end
@@ -129,17 +135,7 @@ Pod::Spec.new do |s|
 #     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
 #     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
 #     ss.osx.frameworks = 'CoreServices'
-  end
-  
-    s.subspec 'TBToastView' do |ss|
-    ss.source_files = 'Base/TBToastView/*.{h,m}'
-   
-#     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
-#     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
-#     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
-#     ss.osx.frameworks = 'CoreServices'
-  end
-  
+  end 
   
   
   s.subspec 'TBNetworkManager' do |ss|
