@@ -10,6 +10,8 @@
 
 
 static NSString *toastString = @"在您的搜索日期内我们没有空房了，请更改日期重试。";
+static NSString *TOASTSTRING_FEEDBACK = @"nikka 知道您有许多话想对我说，我会努力完善自己，给您更好的体验";
+
 
 @interface TBToastView : UIView
 
