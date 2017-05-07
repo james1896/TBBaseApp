@@ -58,12 +58,35 @@ typedef void(^start)(NSString *username,NSString *password);;
 
 //更新积分
 + (void)updatePointsWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
+
+// paras = 0 刷新积分
+//paras >!= 0 更新积分
++ (void)updatePointsWithUserToken:(NSString *)token
+                            paras:(NSInteger)paras
+                          success:(success)success
+                          failure:(failure)failure;
+
+
+
 //登录
 + (void)loginWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
++ (void)loginWithName:(NSString *)name
+             password:(NSString *)pwd
+                 uuid:(NSString *)uuid
+               device:(NSString *)device
+              success:(success)success
+              failure:(failure)failure;
 
 //注册
 
 + (void)registerWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
+
++ (void)registerWithName:(NSString *)name
+                password:(NSString *)pwd
+                    uuid:(NSString *)uuid
+                 success:(success)success
+                 failure:(failure)failure;
+
 
 /**
  更新用户信息

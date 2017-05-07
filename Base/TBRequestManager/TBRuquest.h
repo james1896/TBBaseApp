@@ -22,6 +22,38 @@ typedef void(^failure)(NSURLSessionDataTask *task, NSError *error);
 
 @interface TBRuquest : NSObject
 
-+ (instancetype)shareManager;
+/**
+ manager
 
+ @return <#return value description#>
+ */
++ (instancetype)manager;
+
+
+/**
+ POST
+
+ @param url <#url description#>
+ @param parameters <#parameters description#>
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)POSTWithURL:(NSString *)url
+         parameters:(NSDictionary *)parameters
+            success:(success)success
+            failure:(failure)failure;
+
+
+/**
+ GET
+
+ @param url <#url description#>
+ @param parameters <#parameters description#>
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)GETWithURL:(NSString *)url
+        parameters:(NSDictionary *)parameters
+           success:(success)success
+           failure:(failure)failure;
 @end

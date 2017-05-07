@@ -40,4 +40,14 @@
 - (NSString *)decryptString:(NSString *)str{
     return [RSAEncryptor decryptString:str privateKey:self.privateKey];
 }
+
++ (NSString *)encryptString:(NSString *)str{
+    NIKKARSA *rsa = [self share];
+    return [rsa encryptString:str];
+}
+
++ (NSString *)decryptString:(NSString *)str{
+    NIKKARSA *rsa = [self share];
+    return [rsa decryptString:str];
+}
 @end

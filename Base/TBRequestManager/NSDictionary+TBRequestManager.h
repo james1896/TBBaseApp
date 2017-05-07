@@ -10,4 +10,11 @@
 
 @interface NSDictionary (TBRequestManager)
 
+/**
+ dict to json
+ 
+ @return json
+ */
+-(NSString *)convertToJsonData;
+
 @end

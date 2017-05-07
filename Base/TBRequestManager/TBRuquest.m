@@ -8,7 +8,7 @@
 
 #import "TBRuquest.h"
 #import "AFNetworking.h"
-#import "TBRuquestConfig.h"
+
 
 
 @implementation TBRuquest
@@ -48,10 +48,13 @@
                 success:^(NSURLSessionDataTask * _Nonnull task,
                           id  _Nullable responseObject) {
                     success(task,responseObject);
+                    
+                    NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求成功):%@",url,parameters,responseObject);
                 }
                 failure:^(NSURLSessionDataTask * _Nullable task,
                           NSError * _Nonnull error) {
-        
+                    
+                    NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求失败):%@",url,parameters,error);
                 }];
 }
 
