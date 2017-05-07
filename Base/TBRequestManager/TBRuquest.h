@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TBRuquestConfig.h"
 
 /**
  *  请求数据成功加调
@@ -30,9 +31,12 @@ typedef void(^failure)(NSURLSessionDataTask *task, NSError *error);
 + (instancetype)manager;
 
 
+
 /**
  POST
-
+ 如果参数已经加密
+ 打印出来的数据是 加密 后的数据
+ 
  @param url <#url description#>
  @param parameters <#parameters description#>
  @param success <#success description#>
@@ -40,6 +44,23 @@ typedef void(^failure)(NSURLSessionDataTask *task, NSError *error);
  */
 + (void)POSTWithURL:(NSString *)url
          parameters:(NSDictionary *)parameters
+            success:(success)success
+            failure:(failure)failure;
+
+/**
+ POST 
+ 如果参数已经加密
+ 打印出 未加密 之前的数据
+
+ @param url <#url description#>
+ @param parameters <#parameters description#>
+ @param orgParas 未加密的参数dict
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)POSTWithURL:(NSString *)url
+         parameters:(NSDictionary *)parameters
+         originalParas:(NSDictionary *)orgParas
             success:(success)success
             failure:(failure)failure;
 

@@ -7,21 +7,30 @@
 //
 
 #import "TBRuquestManager.h"
-#import "TBRuquestConfig.h"
 
 #import "NIKKARSA.h"
 #import "NSDictionary+TBRequestManager.h"
+
 @implementation TBRuquestManager
 
 
 
-+ (void)handlePOSTWithURL:(NSString *)url Parameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure{
-    
-    if(!parameters || !url) return;
-    
-    //    [self POSTWithURL:url parameters:parameters success:success failure:failure];
-}
+/**
+ Handle POST
 
+ @param url <#url description#>
+ @param jsonStr <#jsonStr description#>
+ @param orgParas <#orgParas description#>
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)handlePOSTWithURL:(NSString *)url Parameters:(NSString *)jsonStr originalParas:(NSDictionary *)orgParas success:(success)success failure:(failure)failure {
+    
+    if(!jsonStr || !url) return;
+    
+//    [self POSTWithURL:url parameters:@{value:jsonStr} success:success failure:failure];
+    [self POSTWithURL:url parameters:@{value:jsonStr} originalParas:orgParas success:success failure:failure];
+}
 
 
 /**
@@ -29,9 +38,9 @@
  RSA加密数据
 
  @param paras <#paras description#>
- @return @{"value":"json"}
+ @return json
  */
-+ (NSDictionary *)requestDictWithRSA:(NSDictionary *)paras{
++ (NSString *)requestDictWithRSA:(NSDictionary *)paras{
     
     // 字典转 json
     NSString *jsonStr = [paras convertToJsonData];
@@ -39,7 +48,7 @@
     //rsa加密
     NSString *encodeStr = [NIKKARSA encryptString:jsonStr];
     
-    return @{@"value":encodeStr};
+    return encodeStr;
 }
 
 
@@ -48,12 +57,13 @@
  不加密
 
  @param paras <#paras description#>
- @return @{"value":"json"}
+ @return json
  */
-+ (NSDictionary *)requestDictNoWithRSA:(NSDictionary *)paras{
++ (NSString *)requestDictNoWithRSA:(NSDictionary *)paras{
     // 字典转 json
     NSString *jsonStr = [paras convertToJsonData];
-    return @{@"value":jsonStr};
+//    return @{@"value":jsonStr};
+    return jsonStr;
 }
 
 
@@ -70,14 +80,19 @@
  */
 + (void)loginWithName:(NSString *)name password:(NSString *)pwd uuid:(NSString *)uuid device:(NSString *)device success:(success)success failure:(failure)failure{
     
+    //拼接url
     NSString *url = [NSString stringWithFormat:@"%@/login",BASE_URL];
     
+    //拼接参数
     NSDictionary *paras = @{@"username" :name,
                             @"password" :pwd,
                             @"uuid"     :uuid,
                             @"device"   :device};
     
-    [self handlePOSTWithURL:url Parameters:paras success:success failure:failure];
+    //RSA加密
+    NSString *str = [self requestDictWithRSA:paras];
+    
+    [self handlePOSTWithURL:url Parameters:str originalParas:paras success:success failure:failure];
 
 }
 

@@ -7,7 +7,12 @@
 //
 
 
-#define BASE_URL @"http://10.66.67.81:8001/client"
+
+#define value       @"value"
+
+
+#define BASE_URL    @"http://10.66.67.81:8001/client"
+
 
 
 
