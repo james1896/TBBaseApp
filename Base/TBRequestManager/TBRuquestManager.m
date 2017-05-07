@@ -59,7 +59,7 @@
  @param paras <#paras description#>
  @return json
  */
-+ (NSString *)requestDictNoWithRSA:(NSDictionary *)paras{
++ (NSString *)requestDictWithoutRSA:(NSDictionary *)paras{
     // 字典转 json
     NSString *jsonStr = [paras convertToJsonData];
 //    return @{@"value":jsonStr};
