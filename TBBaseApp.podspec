@@ -138,13 +138,13 @@ Pod::Spec.new do |s|
   end 
   
   
-#   s.subspec 'TBNetworkManager' do |ss|
-#     ss.source_files = 'Base/*.{h,m}'
-# #     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
-# #     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
-# #     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
-# #     ss.osx.frameworks = 'CoreServices'
-#   end
+  s.subspec 'BugattiNetworkManager' do |ss|
+    ss.source_files = 'Base/*.{h,m}'
+#     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
+#     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
+#     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
+#     ss.osx.frameworks = 'CoreServices'
+  end
   
    s.subspec 'TBRequestManager' do |ss|
     ss.source_files = 'Base/TBRequestManager/*.{h,m}'
