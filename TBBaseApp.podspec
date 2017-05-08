@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "TBBase.h"
   s.exclude_files = "Classes/Exclude"
-  s.dependency "AFNetworking", "~> 3.1"
+  #s.dependency "AFNetworking", "~> 3.1"
   
    s.subspec 'RSA' do |ss|
     ss.source_files = 'Base/RSA/*.{h,m}'
