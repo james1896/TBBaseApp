@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TBBaseApp"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "1"
 
   # This description is used to generate tags and improve search results.
@@ -138,7 +138,7 @@ Pod::Spec.new do |s|
   end 
   
   
-  s.subspec 'TBNetworkManager' do |ss|
+  s.subspec 'BugattiNetworkManager' do |ss|
     ss.source_files = 'Base/*.{h,m}'
 #     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
 #     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
@@ -146,13 +146,13 @@ Pod::Spec.new do |s|
 #     ss.osx.frameworks = 'CoreServices'
   end
   
-   s.subspec 'TBRequestManager' do |ss|
-    ss.source_files = 'Base/TBRequestManager/*.{h,m}'
-#     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
-#     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
-#     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
-#     ss.osx.frameworks = 'CoreServices'
-  end
+#    s.subspec 'TBRequestManager' do |ss|
+#     ss.source_files = 'Base/TBRequestManager/*.{h,m}'
+# #     ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
+# #     ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
+# #     ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
+# #     ss.osx.frameworks = 'CoreServices'
+#   end
   # s.public_header_files = "Classes/**/*.h"
 
 
