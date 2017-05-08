@@ -21,7 +21,7 @@
  @param success <#success description#>
  @param failure <#failure description#>
  */
-+ (void)testWithParameters:(NSDictionary *)parameters succeess:(success)success failure:(failure)failure;
++ (void)testWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
 
 /**
@@ -31,9 +31,22 @@
  @param success <#success description#>
  @param failure <#failure description#>
  */
-+ (void)test1WithParameters:(NSDictionary *)parameters succeess:(success)success failure:(failure)failure;
++ (void)test1WithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
 
+
+/**
+ init接口
+
+ @param uuid <#uuid description#>
+ @param userName 可以为空
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)configInfoWithUUID:(NSString *)uuid
+                  userName:(NSString *)userName
+                   success:(success)success
+                   failure:(failure)failure;
 /**
  得到订单纪录
 
@@ -87,7 +100,7 @@
 
  @param name <#name description#>
  @param pwd <#pwd description#>
- @param uuid <#uuid description#>
+ @param uuid 可以判断是否单点登录
  @param device <#device description#>
  @param success <#success description#>
  @param failure <#failure description#>
@@ -123,6 +136,7 @@
 + (void)registerWithName:(NSString *)name
                 password:(NSString *)pwd
                     uuid:(NSString *)uuid
+                  device:(NSString *)device
                  success:(success)success
                  failure:(failure)failure;
 

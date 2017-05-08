@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TBRuquestConfig.h"
+
 
 /**
  *  请求数据成功加调

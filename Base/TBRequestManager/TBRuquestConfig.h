@@ -8,10 +8,10 @@
 
 
 
-#define value       @"value"
+#define TBValue       @"value"
 
 
-#define BASE_URL    @"http://10.66.67.81:8001/client"
+#define TB_BASE_URL    @"http://10.66.67.81:8001/client"
 
 
 

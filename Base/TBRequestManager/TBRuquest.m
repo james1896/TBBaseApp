@@ -9,11 +9,9 @@
 #import "TBRuquest.h"
 #import "AFNetworking.h"
 
-
-
 @implementation TBRuquest
 
-+ (instancetype)shareManager{
++ (instancetype)manager{
     
     return [[self alloc]init];
 }

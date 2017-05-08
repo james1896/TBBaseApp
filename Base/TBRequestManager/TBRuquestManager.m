@@ -8,6 +8,7 @@
 
 #import "TBRuquestManager.h"
 
+#import "TBRuquestConfig.h"
 #import "NIKKARSA.h"
 #import "NSDictionary+TBRequestManager.h"
 
@@ -27,9 +28,13 @@
 + (void)handlePOSTWithURL:(NSString *)url Parameters:(NSString *)jsonStr originalParas:(NSDictionary *)orgParas success:(success)success failure:(failure)failure {
     
     if(!jsonStr || !url) return;
+
+    if(orgParas){
+        [self POSTWithURL:url parameters:@{TBValue:jsonStr} originalParas:orgParas success:success failure:failure];
+    }else{
+        [self POSTWithURL:url parameters:@{TBValue:jsonStr} success:success failure:failure];
+    }
     
-//    [self POSTWithURL:url parameters:@{value:jsonStr} success:success failure:failure];
-    [self POSTWithURL:url parameters:@{value:jsonStr} originalParas:orgParas success:success failure:failure];
 }
 
 
@@ -67,21 +72,44 @@
 }
 
 
+
+
+    /***********************  公开接口  **********************************/
+
+
++ (void)testWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure{
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/test",TB_BASE_URL];
+    
+    
+    //RSA加密
+    NSString *str = [self requestDictWithRSA:parameters];
+    
+
+    [self handlePOSTWithURL:url Parameters:str originalParas:parameters success:success failure:failure];
+    
+}
+
++ (void)test1WithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure{
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/test1",TB_BASE_URL];
+    
+    
+    //不加密
+    NSString *str = [self requestDictWithoutRSA:parameters];
+    
+    [self handlePOSTWithURL:url Parameters:str originalParas:parameters success:success failure:failure];
+    
+}
 /**
  登录接口
  处理   url 和 paras
 
- @param name <#name description#>
- @param pwd <#pwd description#>
- @param uuid <#uuid description#>
- @param device <#device description#>
- @param success <#success description#>
- @param failure <#failure description#>
  */
 + (void)loginWithName:(NSString *)name password:(NSString *)pwd uuid:(NSString *)uuid device:(NSString *)device success:(success)success failure:(failure)failure{
     
     //拼接url
-    NSString *url = [NSString stringWithFormat:@"%@/login",BASE_URL];
+    NSString *url = [NSString stringWithFormat:@"%@/login",TB_BASE_URL];
     
     //拼接参数
     NSDictionary *paras = @{@"username" :name,
@@ -95,5 +123,59 @@
     [self handlePOSTWithURL:url Parameters:str originalParas:paras success:success failure:failure];
 
 }
+
+
+/**
+ 注册
+
+ 
+ */
++ (void)registerWithName:(NSString *)name
+                password:(NSString *)pwd
+                    uuid:(NSString *)uuid
+                  device:(NSString *)device
+                 success:(success)success
+                 failure:(failure)failure{
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/register",TB_BASE_URL];
+    
+    //拼接参数
+    NSDictionary *paras = @{@"username" :name,
+                            @"password" :pwd,
+                            @"uuid"     :uuid,
+                            @"device"   :device};
+    
+    //RSA加密
+    NSString *str = [self requestDictWithRSA:paras];
+    
+    [self handlePOSTWithURL:url Parameters:str originalParas:paras success:success failure:failure];
+
+}
+
+
+/**
+ 初始化 配置接口
+
+
+ */
++ (void)configInfoWithUUID:(NSString *)uuid
+                  userName:(NSString *)userName
+                   success:(success)success
+                   failure:(failure)failure{
+
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/register",TB_BASE_URL];
+    
+    //拼接参数
+    NSDictionary *paras = @{@"uuid"     :uuid,
+                            @"username" :userName};
+    
+    //不加密
+    NSString *str = [self requestDictWithoutRSA:paras];
+    
+    [self handlePOSTWithURL:url Parameters:str originalParas:paras success:success failure:failure];
+    
+}
+
 
 @end
