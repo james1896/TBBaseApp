@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 
@@ -77,4 +78,11 @@ typedef void(^failure)(NSURLSessionDataTask *task, NSError *error);
         parameters:(NSDictionary *)parameters
            success:(success)success
            failure:(failure)failure;
+
+
++ (void)uploadImageWithURL:(NSString *)url
+                     Image:(UIImage *)image
+                 ImageName:(NSString *)name
+                   success:(success)success
+                   failure:(failure)failure;
 @end

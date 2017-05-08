@@ -162,13 +162,18 @@
 + (void)consumerrRecordParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
 
+
 /**
  上传图片
- 
+
  @param image <#image description#>
+ @param name <#name description#>
  @param success <#success description#>
  @param failure <#failure description#>
  */
-+(void)uploadImage:(UIImage *)image succeess:(success)success failure:(failure)failure;
++ (void)uploadImageWithImage:(UIImage *)image
+                 ImageName:(NSString *)name
+                   success:(success)success
+                   failure:(failure)failure;
 
 @end

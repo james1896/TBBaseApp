@@ -11,7 +11,7 @@
 #import "NIKKARSA.h"
 
 
-static NSString *BASE_URL = @"http://10.66.67.81:8001/client";
+static NSString *BASE_URL = @"http://10.71.66.102:8001/client";
 
 @implementation BugattiNetworkManager
 

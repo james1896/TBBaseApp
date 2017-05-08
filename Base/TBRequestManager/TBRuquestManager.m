@@ -177,5 +177,14 @@
     
 }
 
++ (void)uploadImageWithImage:(UIImage *)image
+                   ImageName:(NSString *)name
+                     success:(success)success
+                     failure:(failure)failure{
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/img",TB_BASE_URL];
+    
+    [self uploadImageWithURL:url Image:image ImageName:name success:success failure:failure];
 
+}
 @end
