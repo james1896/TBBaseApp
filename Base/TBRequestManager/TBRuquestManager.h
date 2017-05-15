@@ -34,6 +34,18 @@
 + (void)test1WithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
 
+/**
+ 意见反馈
+
+ @param userID <#userID description#>
+ @param content <#content description#>
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)feedbackWithUserID:(NSString *)userID
+                  content:(NSString *)content
+                   success:(success)success
+                   failure:(failure)failure;
 
 /**
  init接口

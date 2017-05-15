@@ -101,6 +101,19 @@
     [self handlePOSTWithURL:url Parameters:parameters originalParas:parameters success:success failure:failure];
     
 }
+
+
++ (void)feedbackWithUserID:(NSString *)userID content:(NSString *)content success:(success)success failure:(failure)failure{
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/feedback",TB_BASE_URL];
+    
+    //拼接参数
+    NSDictionary *paras = @{@"user_id" :userID,
+                            @"content" :content
+                            };
+    
+    [self handlePOSTWithURL:url Parameters:paras originalParas:nil success:success failure:failure];
+}
 /**
  登录接口
  处理   url 和 paras
