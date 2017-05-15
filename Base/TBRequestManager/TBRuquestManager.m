@@ -20,19 +20,19 @@
  Handle POST
 
  @param url <#url description#>
- @param jsonStr <#jsonStr description#>
+ @param jsonDict <#jsonStr description#>
  @param orgParas <#orgParas description#>
  @param success <#success description#>
  @param failure <#failure description#>
  */
-+ (void)handlePOSTWithURL:(NSString *)url Parameters:(NSString *)jsonStr originalParas:(NSDictionary *)orgParas success:(success)success failure:(failure)failure {
++ (void)handlePOSTWithURL:(NSString *)url Parameters:(NSDictionary *)jsonDict originalParas:(NSDictionary *)orgParas success:(success)success failure:(failure)failure {
     
-    if(!jsonStr || !url) return;
+    if(!jsonDict || !url) return;
 
     if(orgParas){
-        [self POSTWithURL:url parameters:@{TBValue:jsonStr} originalParas:orgParas success:success failure:failure];
+        [self POSTWithURL:url parameters:jsonDict originalParas:orgParas success:success failure:failure];
     }else{
-        [self POSTWithURL:url parameters:@{TBValue:jsonStr} success:success failure:failure];
+        [self POSTWithURL:url parameters:jsonDict success:success failure:failure];
     }
     
 }
@@ -86,7 +86,7 @@
     NSString *str = [self requestDictWithRSA:parameters];
     
 
-    [self handlePOSTWithURL:url Parameters:str originalParas:parameters success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:@{TBValue:str} originalParas:parameters success:success failure:failure];
     
 }
 
@@ -96,9 +96,9 @@
     
     
     //不加密
-    NSString *str = [self requestDictWithoutRSA:parameters];
+//    NSString *str = [self requestDictWithoutRSA:parameters];
     
-    [self handlePOSTWithURL:url Parameters:str originalParas:parameters success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:parameters originalParas:parameters success:success failure:failure];
     
 }
 /**
@@ -120,7 +120,7 @@
     //RSA加密
     NSString *str = [self requestDictWithRSA:paras];
     
-    [self handlePOSTWithURL:url Parameters:str originalParas:paras success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:@{TBValue:str} originalParas:paras success:success failure:failure];
 
 }
 
@@ -148,7 +148,7 @@
     //RSA加密
     NSString *str = [self requestDictWithRSA:paras];
     
-    [self handlePOSTWithURL:url Parameters:str originalParas:paras success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:@{TBValue:str} originalParas:paras success:success failure:failure];
 
 }
 
