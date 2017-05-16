@@ -55,7 +55,9 @@
  @param success <#success description#>
  @param failure <#failure description#>
  */
-+ (void)configInfoWithUUID:(NSString *)uuid
++ (void)userInfoWithUUID:(NSString *)uuid
+                  device:(NSString *)device
+                lastTime:(NSString *)time
                   userName:(NSString *)userName
                    success:(success)success
                    failure:(failure)failure;

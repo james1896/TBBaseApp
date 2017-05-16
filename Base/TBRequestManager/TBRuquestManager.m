@@ -171,22 +171,31 @@
 
 
  */
-+ (void)configInfoWithUUID:(NSString *)uuid
-                  userName:(NSString *)userName
-                   success:(success)success
-                   failure:(failure)failure{
++ (void)userInfoWithUUID:(NSString *)uuid
+                  device:(NSString *)device
+                lastTime:(NSString *)time
+                userName:(NSString *)userName
+                 success:(success)success
+                 failure:(failure)failure{
 
     //拼接url
-    NSString *url = [NSString stringWithFormat:@"%@/register",TB_BASE_URL];
+    NSString *url = [NSString stringWithFormat:@"%@/userinfo",TB_BASE_URL];
     
-    //拼接参数
-    NSDictionary *paras = @{@"uuid"     :uuid,
-                            @"username" :userName};
+    NSDictionary *paras = nil;
+    if(userName == nil || [userName isEqualToString: @""]){
+        //拼接参数
+        paras = @{@"uuid"     :uuid,
+                @"device"   :device,
+                @"username" :userName};
+    }else{
+        //拼接参数
+        paras = @{@"uuid"     :uuid,
+                @"device"   :device,
+                @"value" :[self requestDictWithoutRSA:@{@"username":userName}]};
+    }
     
-    //不加密
-    NSString *str = [self requestDictWithoutRSA:paras];
     
-    [self handlePOSTWithURL:url Parameters:str originalParas:paras success:success failure:failure];
+    [self handlePOSTWithURL:url Parameters:paras originalParas:paras success:success failure:failure];
     
 }
 
