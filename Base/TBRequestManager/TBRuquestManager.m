@@ -177,21 +177,26 @@
                 userName:(NSString *)userName
                  success:(success)success
                  failure:(failure)failure{
-
+    
     //拼接url
     NSString *url = [NSString stringWithFormat:@"%@/userinfo",TB_BASE_URL];
     
     NSDictionary *paras = nil;
-    if(userName == nil || [userName isEqualToString: @""]){
+    if(userName == nil ||
+       userName == NULL ||
+       [userName isEqualToString: @""] ||
+       [userName isKindOfClass:[NSNull class]])
+        
+    {
         //拼接参数
         paras = @{@"uuid"     :uuid,
-                @"device"   :device,
-                @"username" :userName};
+                  @"device"   :device,
+                  @"username" :@""};
     }else{
         //拼接参数
         paras = @{@"uuid"     :uuid,
-                @"device"   :device,
-                @"value" :[self requestDictWithoutRSA:@{@"username":userName}]};
+                  @"device"   :device,
+                  @"value" :[self requestDictWithRSA:@{@"username":userName}]};
     }
     
     
