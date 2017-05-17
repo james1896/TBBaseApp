@@ -8,7 +8,7 @@
 
 #import "TBToastView.h"
 
-#define TBTOASTVIEW_HEIGHT 100
+
 @implementation TBToastView
 
 + (void)showToastViewWithText:(NSString *)text{
