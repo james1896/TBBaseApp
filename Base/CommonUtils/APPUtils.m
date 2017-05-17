@@ -10,7 +10,29 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
+
+
+
 @implementation APPUtils
+
++ (BOOL)isIntradayWithLastTime:(double)lastTime {
+    
+    return [self getCurrentDate]-lastTime < secondOfDay;
+}
+
++ (double)getCurrentDate{
+    NSTimeInterval time=[[NSDate date] timeIntervalSince1970]*1000;
+    double i=time;      //NSTimeInterval返回的是double类型
+    NSString *timtStr = [NSString stringWithFormat:@"%.0f",i/1000];
+    return [timtStr doubleValue];
+}
+
++ (void)cuurentTimeWithTag:(NSString *)tag{
+    [[NSUserDefaults standardUserDefaults] setDouble:[self getCurrentDate] forKey:tag];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
 
 + (NSString *)getDeviceModel {
     
