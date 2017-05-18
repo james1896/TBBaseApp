@@ -18,8 +18,7 @@
  加密的测试  test请求
  
  @param parameters <#parameters description#>
- @param success <#success description#>
- @param failure <#failure description#>
+
  */
 + (void)testWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
@@ -28,12 +27,21 @@
  不需要加密的参数 test 请求
  
  @param parameters <#parameters description#>
- @param success <#success description#>
- @param failure <#failure description#>
+
  */
 + (void)test1WithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
 
+
+/**
+ 查询订单
+
+ @param userID <#userID description#>
+
+ */
++ (void)queryOrderWithUserID:(NSString *)userID
+                     success:(success)success
+                     failure:(failure)failure;
 /**
  意见反馈
 

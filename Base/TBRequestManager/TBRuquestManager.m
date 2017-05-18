@@ -103,6 +103,19 @@
 }
 
 
++ (void)queryOrderWithUserID:(NSString *)userID success:(success)success failure:(failure)failure{
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/findorder",TB_BASE_URL];
+    
+    //拼接参数 加密
+   NSDictionary *paras = @{@"value" :[self requestDictWithRSA:@{@"user_id":userID}]};
+    
+    [self handlePOSTWithURL:url Parameters:paras originalParas:nil success:success failure:failure];
+}
+
+/**
+ 意见反馈
+ */
 + (void)feedbackWithUserID:(NSString *)userID content:(NSString *)content success:(success)success failure:(failure)failure{
     //拼接url
     NSString *url = [NSString stringWithFormat:@"%@/feedback",TB_BASE_URL];
