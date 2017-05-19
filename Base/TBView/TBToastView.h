@@ -18,6 +18,8 @@ static NSString *TOASTSTRING_FEEDBACK = @"nikka 知道您有许多话想对我�
 @interface TBToastView : UIView
 
 + (void)showToastViewWithText:(NSString *)text;
++ (void)showToastViewWithText:(NSString *)text completion:(void (^)())completion;
 
 + (void)showToastViewWithDuration:(CGFloat)duration text:(NSString *)text;
++ (void)showToastViewWithDuration:(CGFloat)duration text:(NSString *)text completion:(void (^)())completion;
 @end

@@ -18,7 +18,7 @@
  加密的测试  test请求
  
  @param parameters <#parameters description#>
-
+ 
  */
 + (void)testWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
@@ -27,7 +27,7 @@
  不需要加密的参数 test 请求
  
  @param parameters <#parameters description#>
-
+ 
  */
 + (void)test1WithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
@@ -35,29 +35,29 @@
 
 /**
  查询订单
-
+ 
  @param userID <#userID description#>
-
+ 
  */
 + (void)queryOrderWithUserID:(NSString *)userID
                      success:(success)success
                      failure:(failure)failure;
 /**
  意见反馈
-
+ 
  @param userID <#userID description#>
  @param content <#content description#>
  @param success <#success description#>
  @param failure <#failure description#>
  */
 + (void)feedbackWithUserID:(NSString *)userID
-                  content:(NSString *)content
+                   content:(NSString *)content
                    success:(success)success
                    failure:(failure)failure;
 
 /**
  init接口
-
+ 
  @param uuid <#uuid description#>
  @param userName 可以为空
  @param success <#success description#>
@@ -66,22 +66,35 @@
 + (void)userInfoWithUUID:(NSString *)uuid
                   device:(NSString *)device
                 lastTime:(NSString *)time
-                  userName:(NSString *)userName
-                   success:(success)success
-                   failure:(failure)failure;
+                userName:(NSString *)userName
+                 success:(success)success
+                 failure:(failure)failure;
 /**
  得到订单纪录
-
+ 
  @param parameters <#parameters description#>
  @param success <#success description#>
  @param failure <#failure description#>
  */
 + (void)getRecordWithParameters:(NSDictionary *)parameters success:(success)success failure:(failure)failure;
 
-//
+
+/**
+ 积分赠送
+ 
+ @param userID 本人id
+ @param fName 好友用户名
+ @param point 赠送积分数
+ 
+ */
++ (void)transformPointWithUserID:(NSString *)userID
+                      friendName:(NSString *)fName
+                           point:(NSInteger)point
+                         success:(success)success
+                         failure:(failure)failure;
 /**
  更新积分
-
+ 
  @param parameters <#parameters description#>
  @param success <#success description#>
  @param failure <#failure description#>
@@ -92,25 +105,26 @@
 
 /**
  更新积分
-
+ 
  @param token <#token description#>
  @param paras  paras = 0 刷新积分
-               paras >!= 0 更新积分
-
+ paras >!= 0 更新积分
+ 
  @param success <#success description#>
  @param failure <#failure description#>
  */
-+ (void)updatePointsWithUserToken:(NSString *)token
-                            paras:(NSInteger)paras
-                          success:(success)success
-                          failure:(failure)failure;
++ (void)updatePointsWithUserID:(NSString *)userID
+                      positive:(NSUInteger)positive_points
+                      negative:(NSUInteger)negative_points
+                       success:(success)success
+                       failure:(failure)failure;
 
 
 
 
 /**
  登录
-
+ 
  @param parameters <#parameters description#>
  @param success <#success description#>
  @param failure <#failure description#>
@@ -119,7 +133,7 @@
 
 /**
  登录
-
+ 
  @param name <#name description#>
  @param pwd <#pwd description#>
  @param uuid 可以判断是否单点登录
@@ -138,7 +152,7 @@
 
 /**
  注册
-
+ 
  @param parameters <#parameters description#>
  @param success <#success description#>
  @param failure <#failure description#>
@@ -148,7 +162,7 @@
 
 /**
  注册
-
+ 
  @param name <#name description#>
  @param pwd <#pwd description#>
  @param uuid <#uuid description#>
@@ -165,7 +179,7 @@
 
 /**
  更新用户信息
-
+ 
  @param parameters <#parameters description#>
  @param success <#success description#>
  @param failure <#failure description#>
@@ -176,7 +190,7 @@
 
 /**
  消费纪录
-
+ 
  @param parameters <#parameters description#>
  @param success <#success description#>
  @param failure <#failure description#>
@@ -187,15 +201,15 @@
 
 /**
  上传图片
-
+ 
  @param image <#image description#>
  @param name <#name description#>
  @param success <#success description#>
  @param failure <#failure description#>
  */
 + (void)uploadImageWithImage:(UIImage *)image
-                 ImageName:(NSString *)name
-                   success:(success)success
-                   failure:(failure)failure;
+                   ImageName:(NSString *)name
+                     success:(success)success
+                     failure:(failure)failure;
 
 @end
