@@ -279,4 +279,9 @@
     [self uploadImageWithURL:url Image:image ImageName:name success:success failure:failure];
     
 }
+
++ (Class)manager{
+    
+    return self;
+}
 @end

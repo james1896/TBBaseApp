@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UICopyLabel : UILabel
+@interface TBCopyLabel : UILabel
 
 @end

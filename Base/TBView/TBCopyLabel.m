@@ -6,9 +6,9 @@
 //  Copyright © 2017 toby. All rights reserved.
 //
 
-#import "UICopyLabel.h"
+#import "TBCopyLabel.h"
 
-@implementation UICopyLabel
+@implementation TBCopyLabel
 
 -(BOOL)canBecomeFirstResponder
 
