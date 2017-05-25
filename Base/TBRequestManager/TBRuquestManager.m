@@ -107,7 +107,7 @@
 /**
  积分查询
  
- @param userID
+ @param userID id
  @param positive_points 正数（积分增加）
  @param negative_points 负数（积分减少）
  两个参数至少有一个为0，
@@ -141,7 +141,7 @@
     //拼接url
     NSString *url = [NSString stringWithFormat:@"%@/transforpoints",TB_BASE_URL];
     
-    NSDictionary *paras = @{@"points" :[NSNumber numberWithInt:point],
+    NSDictionary *paras = @{@"points" :[NSNumber numberWithInteger:point],
                             @"value"  :[self requestDictWithRSA:@{@"user_id":userID,
                                                                   @"friend_name":fName}]};
     

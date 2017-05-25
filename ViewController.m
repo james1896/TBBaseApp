@@ -10,6 +10,7 @@
 #import "APPUtils.h"
 #import "TBPredicate.h"
 #import "TBRuquestManager.h"
+#import "TBRequestOnAdmin.h"
 @interface ViewController ()
 
 @end
@@ -33,9 +34,23 @@
 //        
 //    }];
     
-    [TBRuquestManager queryOrderWithUserID:@"14949025190" success:^(NSURLSessionDataTask *task, id responseObject) {
+//    [TBRuquestManager queryOrderWithUserID:@"14949025190" success:^(NSURLSessionDataTask *task, id responseObject) {
+//    
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//    }];
     
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    [TBRequestOnAdmin allPointsWithUUID:@"80BFEC61-59A7-4991-9212-148A3DDFE705"
+                                success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+                                }
+                                failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+    [TBRequestOnAdmin userCountAtSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    }   failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
 }
