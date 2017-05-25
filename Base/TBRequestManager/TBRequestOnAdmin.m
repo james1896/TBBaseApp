@@ -15,6 +15,14 @@
 #define TB_BASE_ADMIN_URL    @"http://10.71.66.102:8001/admin"
 @implementation TBRequestOnAdmin
 
+
++ (void)getUsersAtDate:(NSInteger)date success:(success)success failure:(failure)failure{
+    
+    //拼接url
+    NSString *url = [NSString stringWithFormat:@"%@/curusers",TB_BASE_ADMIN_URL];
+    [self handlePOSTWithURL:url Parameters:@{@"date":[NSString stringWithFormat:@"%ld",(long)date]} originalParas:nil success:success failure:failure];
+}
+
 + (void)userCountAtSuccess:(success)success failure:(failure)failure{
 
     
