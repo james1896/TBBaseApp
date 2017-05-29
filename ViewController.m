@@ -16,6 +16,15 @@
 @end
 
 @implementation ViewController
+- (IBAction)buttonPress:(id)sender {
+    
+    [TBRequestOnAdmin getUsersAtDate:0 success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,11 +49,7 @@
 //        
 //    }];
     
-    [TBRequestOnAdmin getUsersAtDate:0 success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-    }];
+   
 }
 
 - (void)didReceiveMemoryWarning {
